@@ -10,7 +10,7 @@ helpers.commandList = new Array(
         "commands",
         "rules",
         "usercommands",
-		"auths",
+	"auths",
         "last_command_without_comma"
 );
 function function_name_first() {
