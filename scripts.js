@@ -56,6 +56,7 @@ function function_name_last() {
                                 }
                         }
                         return found;
+        }
         },
         //...
     afterLogIn: function (src)
