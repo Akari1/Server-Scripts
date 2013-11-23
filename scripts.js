@@ -35,7 +35,8 @@ function function_name_last() {
 					}
 					else {
 						return this;
-			}
+					}
+				}
  ({
         serverStartUp : function() {
                 this.init();
