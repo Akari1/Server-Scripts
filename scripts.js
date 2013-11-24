@@ -8,30 +8,16 @@ config.highlighter = "green";
 helpers = new Object();
 helpers.commandList = new Array(
        //User Commands
-	    "commands",
-        "rules",
-        "usercommands",
-		"auths",
-		"attack",
-		"league",
+	    "commands","rules","usercommands","auths","attack","league",
 	   //Mod Commands
-		"modcommands",
-		"mute",
-		"unmute",
-		"tempban",
-		"info",
-		"iconcommands",
-		"tourcommands",
+		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
+		"icon","reseticon",
 		//Admin Commands
-		"admincommands",
-		"ban",
-		"unban",
-		"smute",
-		"sunmute",
-		"superimp",
-		"topic",
+		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat",
+		//Owner Commands
         "last_command_without_comma"
 );
+
 function function_name_first() {
         //Stuff
 }
@@ -70,19 +56,14 @@ function function_name_last() {
         //...
     afterLogIn: function (src)
     {
-        sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b> Hello, welcome to <b>Neon</b>Scripts test server!<br>");
-        sys.sendHtmlMessage(src, "<b><font color=navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>");
-		sys.sendHtmlMessage(src, "<img src='pokemon:384'align='left' height='84' width='84'> <b>•Type <font color=green><b>/commands</font><b> to view a list of commands.");
-		sys.sendHtmlMessage(src, "&nbsp;<b>•Type <font color=green>/rules</font><b> to view the server guidelines/rules.</b>");
-		sys.sendHtmlMessage(src, "&nbsp;<b>•To see a list of the current server staff type <font color=green>/auths</font>.");
-		sys.sendHtmlMessage(src, " ");
-		sys.sendHtmlMessage(src, " ");
-		sys.sendHtmlMessage(src, " <br>");
-		sys.sendHtmlMessage(src, "<b><font color=navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>");
+        sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b>");
+		sys.sendHtmlMessage(src, "<font color=red><timestamp /><b>±WelcomeBot: </font></b> Hello and welcome to the server!");		
+		sys.sendHtmlMessage(src, "<font color=orange><timestamp /><b>±PlayerBot: </font></b> Current amount of players online is <b>" + sys.numPlayers() + "</b>.");
+		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>");
 
     },
-	    
-        beforeChatMessage : function(src, message, chan) {
+    
+		beforeChatMessage : function(src, message, chan) {
                 if ((message[0] == '/' || message[0] == '!' || message[0] == '$') && message.length > 1) { 
                 sys.stopEvent();
                 var command;
@@ -93,7 +74,7 @@ function function_name_last() {
                         commandData = message.substr(pos+1);
                         var data = commandData.split(":");
                         if (!isCommand(command)) {
-                                sendInfoMessageToUser(src, "Das Kommando <span style='color: " + config.highlighter + ";'>/" + command + "</span> existiert nicht.", chan);
+                                sendInfoMessageToUser(src, "You may not use the <span style='color: " + config.highlighter + ";'>/" + command + "</span> command.", chan);
                                 return;
                         }
                 }
@@ -108,6 +89,10 @@ function function_name_last() {
                 sys.sendHtmlMessage(src, "<span style='color: " + config.botColor + ";'><timestamp /></span>" + config.bot + message, chan);
         }
 }
+			function POUser() {
+				this.muted = false;
+			}
+			SESSION.registerUserFactory(POUser);
                                 return;
                         }
                 }
@@ -115,17 +100,17 @@ function function_name_last() {
         }
         
         var currentAuth = sys.auth(src);
-						
-                if (command == "commands") {
-                        sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/usercommands</span></b> - show user commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/modcommands</span></b> - show moderator commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admincommands</span></b> - show administrator commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ownercommands</span></b> - show owner commands!<br>", chan);
-						sys.sendHtmlMessage(src, "<b><font color=navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
-                }
-                if (command == "rules") {
-				        sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+	
+				if (command == "league") {
+						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
+						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:716'>Lea<font color=blue size=6><b>gue<img src='icon:717'></b></font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <font color=grey>Whitney</font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <font color=brickred>Mashal</font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <font color=skyblue>Skyla</font><br>", chan);
+						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
+				}
+				if (command == "rules") {
+				        sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 						sys.sendHtmlMessage(src, "<img src='icon:384'><font color=green size=6><b>Server Rules</b></font><img src='icon:384'>", chan);
 						sys.sendHtmlMessage(src, " ", chan);
 						sys.sendHtmlMessage(src, "<b>1)</b> No spamming or flooding the chat or through PM.", chan);
@@ -134,24 +119,31 @@ function function_name_last() {
                         sys.sendHtmlMessage(src, "<b>4)</b> No Advertising. Sending links to the forums, Smogon, or to YouTube is fine; giving links to your site is not permitted.", chan);
 						sys.sendHtmlMessage(src, "<b>5)</b> No Pornography; there are people that are under-age to view such things so don't do it.", chan);
 						sys.sendHtmlMessage(src, "<b>6)</b> Do not ask for Authority. It mostly ruins your chances of getting it in the future.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
-
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+				}
+                if (command == "commands") {
+                        sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/usercommands</span></b> - show user commands!", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/modcommands</span></b> - show moderator commands!", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admincommands</span></b> - show administrator commands!", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ownercommands</span></b> - show owner commands!<br>", chan);
+						sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
                 }//USER COMMANDS
                 if (command == "usercommands") {
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/rules</span></b> - show a list of the server rules.", chan);
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/auths</span></b> - to see all server authority.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/league</span></b> - to see the Sky Pillar league!", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/attack</span></b> - to use an attack on someone (fun)", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/me</span></b> - talk to someone as third person.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 				}
 				if (command == "attack") {
-	if (command_data != undefined) {
+	if (commandData != undefined) {
 		var pokemon = sys.pokemon(sys.rand(0, 650));
 		var move = sys.move(sys.rand(0, 559));
 		if (sys.loggedIn(tar)) {
-			sys.sendAll(sys.name(src) + "'s " + pokemon + " uses " + move + " and " + command_data + " loses " + sys.rand(0, 710) + " HP!", chan);
+			sys.sendHtmlAll(sys.name(src) + "'s " + pokemon + " uses " + move + " and " + commandData + " loses " + sys.rand(0, 230) + " HP!", chan);
 		} else {
 			sys.sendAll(sys.name(src) + "'s " + pokemon + " uses " + move + " but there is no target...", chan);			
 		}
@@ -160,12 +152,12 @@ function function_name_last() {
 	}
 				}
 				if (command == "league") {
-						sys.sendHtmlMessage(src, "<center><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br></center>", chan);
+						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
 						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:716'>Lea<font color=blue size=6><b>gue<img src='icon:717'></b></font>", chan);
 						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <font color=grey>Whitney</font>", chan);
 						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <font color=brickred>Mashal</font>", chan);
 						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <font color=skyblue>Skyla</font><br>", chan);
-						sys.sendHtmlMessage(src, "<center><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b></center>", chan);
+						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				
 				}
 				if (command == "auths") {
@@ -213,7 +205,7 @@ function function_name_last() {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 					}
 					if (sys.auth(src) >= 1) {
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/kick</span></b> - to kick a player from the server.", chan);
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/mute</span></b> - to mute a user.", chan);
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unmute</span></b> - to unmute a user.", chan);
@@ -221,26 +213,67 @@ function function_name_last() {
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/info</span></b> - see the information of a specific user.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/iconcommands</span></b> - show icon commands.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tourcommands</span></b> - to view the current tour commands.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
+                                }
+				if (command == "mute") {
+	if (sys.auth(src) >= 1) { // this allows users to use this command as moderator and higher
+		if (commandData != undefined) {
+			var tar = sys.id(commandData);
+			if (sys.auth(src) > sys.auth(tar)) { // you need this so you can only mute lower auth
+				if (!SESSION.users(tar).muted) {
+					SESSION.users(tar).muted = true;
+					sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b>" + commandData + " was muted by " + sys.name(src) + "!", chan);
+					return; // you need to return here, otherwise the else tree is executed
+				} else {
+					sys.sendMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>" + commandData + " is already muted.", chan);
+				} 
+			} else {
+				sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You can only mute lower auth.", chan);
+			}
+		} else {
+			sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You need to select a player.", chan);
+		}
+	} else {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You don't have permission to use this command.", chan);
+	}
 				}
+				if (command == "kick" || command == "k") {
+        if (sys.auth(src) >= 1) {
+		if (tar === undefined) {
+            sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No such user", chan);
+            return;
+    }
+        sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b>" + commandData + " was mysteriously kicked by " + sys.name(src) + "!");
+        sys.kick(tar);
+        var authname = sys.name(src).toLowerCase();
+        authStats[authname] =  authStats[authname] || {};
+        authStats[authname].latestKick = [commandData, parseInt(sys.time(), 10)];
+        return;
+			}
+		}	
 				if (command == "admincommands") {
 					if (sys.auth(src) <= 2) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 					}
 					if (sys.auth(src) >= 2) {
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ban</span></b> - to ban a user permanently from the server.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unban</span></b> - to unban a user from the server.", chan);						
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/superimp</span></b> - change your name to disguise yourself.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/topic</span></b> - to change or add to the current server topic.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/changepotw</span></b> - to change the pokemon of the week.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/smute</span></b> - to silently mute a user.", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/clearchat</span></b> - to clear the entire chat; cannot undo.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
-						sys.sendHtmlMessage(src, "<br><b><font color =navy blue>Ooº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoOOoº°°ºoO</font></b><br>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
 				}
-                if (command == "last_command_without_comma") {
+				if (command == "clearchat") {
+					if (sys.auth(src) >= 2) {
+					}
+				}
+				if (command == "last_command_without_comma") {
                         
                 }          
         },        
