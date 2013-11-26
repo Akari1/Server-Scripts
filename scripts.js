@@ -271,6 +271,8 @@ function function_name_last() {
 				}
 				if (command == "clearchat") {
 					if (sys.auth(src) >= 2) {
+						sys.sendHtmlMessage(src, + sys.clearChat() + );
+						return;
 					}
 				}
 				if (command == "last_command_without_comma") {
