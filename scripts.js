@@ -1,20 +1,20 @@
 //Neon Scripts//
 config = new Object();
 config.colorname = "#c34721";
-config.botColor = "#3daa68";
+config.botColor = "green";
 config.botName = "Rayquaza";
 config.bot = "<span style='color: " + config.botColor + ";'>±" + config.botName + ":</span> ";
 config.highlighter = "green";
 helpers = new Object();
 helpers.commandList = new Array(
-       //User Commands
-	    "commands","rules","usercommands","auths","attack","league",
-	   //Mod Commands
+    //User Commands
+	    "commands","rules","usercommands","auths","auth","authlist","attack","league",
+	//Mod Commands
 		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
 		"icon","reseticon",
-		//Admin Commands
+	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat",
-		//Owner Commands
+	//Owner Commands
         "last_command_without_comma"
 );
 
@@ -62,7 +62,7 @@ function function_name_last() {
 		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>");
 
     },
-    
+	
 		beforeChatMessage : function(src, message, chan) {
                 if ((message[0] == '/' || message[0] == '!' || message[0] == '$') && message.length > 1) { 
                 sys.stopEvent();
@@ -160,14 +160,14 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				
 				}
-				if (command == "auths") {
+				if (command == "auths" || command == "authlist" || command == "auth") {
 					var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
 					var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
 					var printOnlineOffline = function(name) {
 						if (sys.id(name) === undefined) {
 							if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
 						} else {
-							sys.sendHtmlMessage(src, "<timestamp/><font color = " + sys.getColor(sys.id(name)) + "><b>" + name + "</b></font>", chan);
+							sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + name + "</b></font>", chan);
 						}
 					};
 					var authlist = sys.dbAuths().sort();
@@ -188,14 +188,16 @@ function function_name_last() {
 						authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
 						break;
 					default:
-						sys.sendHtmlMessage(src, "<font color=purple><timestamp/>*** Owners ***</font>", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
+						sys.sendHtmlMessage(src, "<font color=purple size=5><b><img src='Themes/Classic/Client/oAvailable'> - Owners</b></font>", chan);
 						authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
 						sys.sendMessage(src, '', chan);
-						sys.sendHtmlMessage(src, "<font color=orange><timestamp/>*** Administrators ***</font>", chan);
+						sys.sendHtmlMessage(src, "<font color=orange size=5><b><img src='Themes/Classic/Client/aAvailable'> - Administrators</b></font>", chan);
 						authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
 						sys.sendMessage(src, '', chan);
-						sys.sendHtmlMessage(src, "<font color=blue><timestamp/>*** Moderators ***</font>", chan);
+						sys.sendHtmlMessage(src, "<font color=blue size=5><b><img src='Themes/Classic/Client/mAvailable'> - Moderators</b></font>", chan);
 						authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font>", chan);
 					}
 					sys.sendMessage(src, '', chan);
 					return;
@@ -268,13 +270,7 @@ function function_name_last() {
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
-				}
-				if (command == "clearchat") {
-					if (sys.auth(src) >= 2) {
-						sys.sendHtmlMessage(src, + sys.clearChat() + );
-						return;
-					}
-				}
+				}			
 				if (command == "last_command_without_comma") {
                         
                 }          
