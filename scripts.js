@@ -8,14 +8,14 @@ config.highlighter = "green";
 helpers = new Object();
 helpers.commandList = new Array(
     //User Commands
-	    "commands","rules","usercommands","auths","auth","authlist","attack","league",
+	    "commands","rules","usercommands","auths","auth","authlist","attack","league","me",
 	//Mod Commands
 		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
 		"icon","reseticon",
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat",
 	//Owner Commands
-        "user","mod","admin","owner","invisible"
+        "ownercommands","authcommands","user","mod","admin","owner","invisible"
 );
 
 function function_name_first() {
@@ -151,6 +151,9 @@ function function_name_last() {
 		sys.sendMessage(src, "You need to select a player.", chan);
 	}
 				}
+				if (command == "me") {
+				sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
+				}
 				if (command == "league") {
 						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
 						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:716'>Lea<font color=blue size=6><b>gue<img src='icon:717'></b></font>", chan);
@@ -203,7 +206,7 @@ function function_name_last() {
 					return;
 				} //MOD COMMANDS
 				if (command == "modcommands"){
-					if (sys.auth(src) <= 1) {
+					if (sys.auth(src) <= 0) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 					}
 					if (sys.auth(src) >= 1) {
@@ -271,12 +274,31 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
 				}
-				if (command == "clearchat"){
-				if (sys.auth(src) >= 2){
-					sys.sendAll("", chan);
-				return;
-					}
+				if (command == "clearchat") {
+				if (sys.auth(src) <= 2) {
+							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 				}
+				if (sys.auth(src) >= 2) {
+				var blankMsg = "";
+				for (x = 0; x < 9999; x++) { // you can go further than '9999', may want to experiment
+					blankMsg += "<br/>";
+				}
+				sys.sendHtmlAll(blankMsg);
+				sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b>The chat was cleared by " + sys.name(src) + "!"); // clears chat
+				sys.clearChat(); // clears server window
+									}
+							}
+				if (command == "ban") {
+    if (sys.auth(src) <= 2) {
+        sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+        return;
+    }
+	if (sys.auth(src) >= 2) {
+    sys.ban(commandData); // first bans them
+    sys.kick(sys.id(commandData)); // then removes them from server
+    sys.sendHtmlAll("<font color=red><b>" + commandData +" was banned from the server by " + sys.name(src) +".");
+			}
+		}
 				if (command == "ownercommands") {
 					if (sys.auth(src) <= 3) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
@@ -294,6 +316,21 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
 				}
+								if (command == "authcommands") {
+					if (sys.auth(src) >= 3) {
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/user (name)</span></b> - to change the auth of someone to user.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/mod (name)</span></b> - to change the auth of someone to moderator.", chan);						
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admin (name)</span></b> - to change the auth of someone to administrator.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/owner (name)</span></b> - to change the auth of someone to owner.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/invisible (name)</span></b> - to change the auth of someone to invisible owner.", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+											}
+											if (sys.auth(src) <= 0) {
+							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+					}
+				}
+
 				tar = sys.id(commandData);
 				if (command == "user"){
 				if (sys.auth(src) >= 3) {
