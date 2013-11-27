@@ -15,7 +15,7 @@ helpers.commandList = new Array(
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat",
 	//Owner Commands
-        "last_command_without_comma"
+        "user","mod","admin","owner","invisible"
 );
 
 function function_name_first() {
@@ -270,7 +270,89 @@ function function_name_last() {
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
-				}			
+				}
+				tar = sys.id(commandData);
+				if (command == "user"){
+				if (sys.auth(src) >= 3) {
+				if(sys.dbIp(commandData) == undefined){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target does not exist.", chan);
+				return;
+					}
+				else {
+				sys.changeAuth(tar, 0)
+				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a <font color=blakc><b>user</b></font>.");
+				return;
+							}
+						}
+				}
+				if (command == "mod"){
+				if (sys.auth(src) >= 3) {
+				if(sys.dbIp(commandData) == undefined){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target does not exist.", chan);
+				return;
+					}
+				if (!sys.dbRegistered(commandData)){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target is unregistered.", chan);
+				return;
+					}
+				else {
+				sys.changeAuth(tar, 1)
+				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=blue><b>moderator</b></font>.");
+				return;
+							}
+						}
+				}
+				if (command == "admin"){
+				if (sys.auth(src) >= 3) {
+				if(sys.dbIp(commandData) == undefined){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target does not exist.", chan);
+				return;
+					}
+				if (!sys.dbRegistered(commandData)){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target is unregistered.", chan);
+				return;
+					}
+				else {
+				sys.changeAuth(tar, 2)
+				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=orange><b>administrator</b></font>.");
+				return;
+							}
+						}
+					}
+				if (command == "owner"){
+				if (sys.auth(src) >= 3) {
+				if(sys.dbIp(commandData) == undefined){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target does not exist.", chan);
+				return;
+					}
+				if (!sys.dbRegistered(commandData)){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target is unregistered.", chan);
+				return;
+				}
+				else {
+				sys.changeAuth(tar, 3)
+				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=purple><b>owner</b></font>.");
+				return;
+					}
+				}
+				}
+				if (command == "invisible"){
+				if (sys.auth(src) >= 3) {
+				if(sys.dbIp(commandData) == undefined){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target does not exist.", chan);
+				return;
+					}
+				if (!sys.dbRegistered(commandData)){
+				sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±Rayquaza:</b></font> Your target is unregistered.", chan);
+				return;
+				}
+				else {
+				sys.changeAuth(tar, 4)
+				sys.sendHtmlMessage("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=purple><b>owner</b></font>.");
+				return;
+					}
+				}
+				}				
 				if (command == "last_command_without_comma") {
                         
                 }          
