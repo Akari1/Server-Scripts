@@ -167,7 +167,7 @@ function function_name_last() {
 						if (sys.id(name) === undefined) {
 							if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
 						} else {
-							sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + name + "</b></font>", chan);
+							sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + sys.name(src) + "</b></font>", chan);
 						}
 					};
 					var authlist = sys.dbAuths().sort();
@@ -271,6 +271,29 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
 				}
+				if (command == "clearchat"){
+				if (sys.auth(src) >= 2){
+					sys.sendAll("", chan);
+				return;
+					}
+				}
+				if (command == "ownercommands") {
+					if (sys.auth(src) <= 3) {
+							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+					}
+					if (sys.auth(src) >= 3) {
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/changeannouncement</span></b> - to change the current server banner.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/authcommands</span></b> - to view a list of auth commands.", chan);						
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/eval</span></b> - to preform an eval based code.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/clearpass</span></b> - to clear the password of a user.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/changepotw</span></b> - to change the pokemon of the week.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/smute</span></b> - to silently mute a user.", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/clearchat</span></b> - to clear the entire chat; cannot undo.", chan);
+                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
+						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+											}
+				}
 				tar = sys.id(commandData);
 				if (command == "user"){
 				if (sys.auth(src) >= 3) {
@@ -280,7 +303,7 @@ function function_name_last() {
 					}
 				else {
 				sys.changeAuth(tar, 0)
-				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a <font color=blakc><b>user</b></font>.");
+				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</font></b> was made a <font color=blakc><b>user</b></font>.");
 				return;
 							}
 						}
@@ -301,7 +324,7 @@ function function_name_last() {
 				return;
 							}
 						}
-				}
+					}
 				if (command == "admin"){
 				if (sys.auth(src) >= 3) {
 				if(sys.dbIp(commandData) == undefined){
