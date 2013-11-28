@@ -13,7 +13,7 @@ helpers.commandList = new Array(
 		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
 		"icon","reseticon",
 	//Admin Commands
-		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat",
+		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
         "ownercommands","authcommands","user","mod","admin","owner","invisible"
 );
@@ -57,8 +57,12 @@ function function_name_last() {
     afterLogIn: function (src)
     {
         sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b>");
-		sys.sendHtmlMessage(src, "<font color=red><timestamp /><b>±WelcomeBot: </font></b> Hello and welcome to the server!");		
-		sys.sendHtmlMessage(src, "<font color=orange><timestamp /><b>±PlayerBot: </font></b> Current amount of players online is <b>" + sys.numPlayers() + "</b>.");
+		sys.sendHtmlMessage(src, "<font color=red><timestamp /><b>±WelcomeBot: </font></b>Hello <font color=" + sys.getColor(src) + "><b>" + sys.name(src) + "</font></b>! Welcome to the Server");
+		sys.sendHtmlMessage(src, "<font color=orange><timestamp /><b>±PlayerBot: </font></b> Current amount of players online is: <b>" + sys.numPlayers() + "</b>.");
+		sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±InfoBot: </font></b> Your current IP is: <b>" + sys.ip(src) + "</b>.");
+		sys.sendHtmlMessage(src, "<font color=purple><timestamp /><b>±IdentityBot: </font></b> Your current user ID is: <b>" + sys.id(src) + "</b>.");
+		var topicfile = sys.read("potwfile.txt");		
+		sys.sendHtmlMessage(src, "<font color=blue><timestamp /><b>±PokeBot: </font></b> The current Pokémon of the Week is: " + topicfile );
 		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>");
 
     },
@@ -273,6 +277,19 @@ function function_name_last() {
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
+				}
+				if (command == "changepotw"){
+					if (sys.auth(src) >= 1){
+					sys.write("potwfile.txt", commandData);
+					sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b> You have set the potw to: "+commandData+"");
+					return;
+					}
+					else {
+					if (sys.auth(src) < 1){
+					sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+					return;
+					}
+					}
 				}
 				if (command == "clearchat") {
 				if (sys.auth(src) <= 2) {
