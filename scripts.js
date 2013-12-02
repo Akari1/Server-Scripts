@@ -75,6 +75,7 @@ function function_name_last() {
 		sys.stopEvent();
 		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b> You're currently muted, so you cannot chat.");
 		return;
+		}
                 if ((message[0] == '/' || message[0] == '!' || message[0] == '$') && message.length > 1) { 
                 sys.stopEvent();
                 var command;
