@@ -305,16 +305,17 @@ function function_name_last() {
 				sys.clearChat(); // clears server window
 									}
 							}
+				if (command == "ban") {
 				if (sys.auth(src) < 2) {
-sys.sendMessage(src, "You cannot use this command!");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
 return;
 }
 if(sys.dbIp(commandData) == undefined) {
-sendChanMessage(src, "+Bot: No player exists by this name! Lol xp U fail");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>Sorry, but no player exist by this username.");
 return;
 }
 if (sys.maxAuth(sys.ip(tar))>=sys.auth(src)) {
-sendChanMessage(src, "+Bot: You can't ban this person. smart one????");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command on higher authority.");
 return;
 }
 ip = sys.dbIp(commandData) 
@@ -327,13 +328,13 @@ y=z
 }
 }
 if(y>=sys.auth(src)) {
-sendChanMessage(src, "+Bot: You can't ban this person. smart one????");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot ban users of higher authority/");
 return;
 }
 banlist=sys.banList()
 for(a in banlist) {
 if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
-sendChanMessage(src, "+Bot: He/she's already banned!");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's already banned!");
 return;
 }
 }
@@ -347,24 +348,26 @@ return;
 } 
 if (command == "unban") {
 if (sys.auth(src) < 2) {
-sys.sendMessage(src, "You cannot use this command!");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
 return;
 }
 if(sys.dbIp(commandData) == undefined) {
-sendChanMessage(src, "+Bot: No player exists by this name!");
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No player exists by this name!");
 return;
 }
 banlist=sys.banList()
 for(a in banlist) {
 if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
 sys.unban(commandData)
-sendChanMessage(src, "+Bot: You unbanned " + commandData + "!");
-sys.sendHtmlAll('<b><font color=red>' + commandData + ' was unbanned by ' + sys.name(src) + '!</font></b>');
+sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You unbanned " + commandData + "!");
+if (sys.auth(src) >= 1) {
+sys.sendHtmlAll('<font color =green><timestamp /><b>±Rayquaza: </font></b>' + commandData + ' was unbanned by ' + sys.name(src) + '!');
 sys.appendToFile('bans.txt', sys.name(src) + ' unbanned ' + commandData + "\n")
 return;
 }
+}
 } 
-sendChanMessage(src, "+Bot: He/she's not banned!");
+sys.sendHtmlAll(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's not banned!");
 return;
 }
 
