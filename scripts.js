@@ -305,17 +305,69 @@ function function_name_last() {
 				sys.clearChat(); // clears server window
 									}
 							}
-				if (command == "ban") {
-    if (sys.auth(src) <= 2) {
-        sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
-        return;
-    }
-	if (sys.auth(src) >= 2) {
-    sys.ban(commandData); // first bans them
-    sys.kick(sys.id(commandData)); // then removes them from server
-    sys.sendHtmlAll("<font color=red><b>" + commandData +" was banned from the server by " + sys.name(src) +".");
-			}
-		}
+				if (sys.auth(src) < 2) {
+sys.sendMessage(src, "You cannot use this command!");
+return;
+}
+if(sys.dbIp(commandData) == undefined) {
+sendChanMessage(src, "+Bot: No player exists by this name! Lol xp U fail");
+return;
+}
+if (sys.maxAuth(sys.ip(tar))>=sys.auth(src)) {
+sendChanMessage(src, "+Bot: You can't ban this person. smart one????");
+return;
+}
+ip = sys.dbIp(commandData) 
+alias=sys.aliases(ip)
+y=0
+for(var x in alias) {
+z = sys.dbAuth(alias[x])
+if (z > y) {
+y=z
+}
+}
+if(y>=sys.auth(src)) {
+sendChanMessage(src, "+Bot: You can't ban this person. smart one????");
+return;
+}
+banlist=sys.banList()
+for(a in banlist) {
+if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
+sendChanMessage(src, "+Bot: He/she's already banned!");
+return;
+}
+}
+sys.sendHtmlAll('<b><font color=red>' + commandData + ' was banned by ' + sys.name(src) + '!</font></b>');
+if(tar != undefined) {
+sys.kick(tar)
+}
+sys.ban(commandData)
+sys.appendToFile('bans.txt', sys.name(src) + ' banned ' + commandData + "\n")
+return;
+} 
+if (command == "unban") {
+if (sys.auth(src) < 2) {
+sys.sendMessage(src, "You cannot use this command!");
+return;
+}
+if(sys.dbIp(commandData) == undefined) {
+sendChanMessage(src, "+Bot: No player exists by this name!");
+return;
+}
+banlist=sys.banList()
+for(a in banlist) {
+if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
+sys.unban(commandData)
+sendChanMessage(src, "+Bot: You unbanned " + commandData + "!");
+sys.sendHtmlAll('<b><font color=red>' + commandData + ' was unbanned by ' + sys.name(src) + '!</font></b>');
+sys.appendToFile('bans.txt', sys.name(src) + ' unbanned ' + commandData + "\n")
+return;
+}
+} 
+sendChanMessage(src, "+Bot: He/she's not banned!");
+return;
+}
+
 				if (command == "ownercommands") {
 					if (sys.auth(src) <= 3) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
