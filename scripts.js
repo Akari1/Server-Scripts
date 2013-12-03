@@ -119,12 +119,12 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
 						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);
 						sys.sendHtmlMessage(src, "", chan);
-						sys.sendHtmlMessage(src, "<font color=bluesize=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);						
+						sys.sendHtmlMessage(src, "<font color=blue size=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);						
 						sys.sendHtmlMessage(src, "", chan);
 						sys.sendHtmlMessage(src, "<font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
 						sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				}
 				if (command == "rules") {
