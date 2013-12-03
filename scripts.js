@@ -11,7 +11,7 @@ helpers.commandList = new Array(
 	    "commands","rules","usercommands","auths","auth","authlist","attack","league","me",
 	//Mod Commands
 		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
-		"icon","reseticon",
+		"icon","reseticon","announce",
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
@@ -226,11 +226,17 @@ function function_name_last() {
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unmute</span></b> - to unmute a user.", chan);
 						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tempban</span></b> - temperately ban a user on the server.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/info</span></b> - see the information of a specific user.", chan);
+                                                sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/announce</span></b> - to make a server announcement.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/iconcommands</span></b> - show icon commands.", chan);
                         sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tourcommands</span></b> - to view the current tour commands.<br>", chan);
 						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 											}
                                 }
+        if (command =="announce") {
+        	if (sys.auht(src) <= 1) {
+        		sys.sendHtmlMessage(commandData);
+        	}
+        	}
 	if (command == "kick" || command == "k") {
         if (sys.auth(src) >= 1) {
 		if (tar === undefined) {
