@@ -108,10 +108,23 @@ function function_name_last() {
 	
 				if (command == "league") {
 						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
-						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:716'>Lea<font color=blue size=6><b>gue<img src='icon:717'></b></font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <font color=grey>Whitney</font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <font color=brickred>Mashal</font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <font color=skyblue>Skyla</font><br>", chan);
+						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:717'><u>Gym Leaders</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type9.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type10.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type11.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type3.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type12.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type4.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type13.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type5.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type14.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type6.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type15.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "", chan);
+						sys.sendHtmlMessage(src, "<center><font color=bluesize=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);						
+						sys.sendHtmlMessage(src, "", chan);
+						sys.sendHtmlMessage(src, "<center><font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
 						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				}
 				if (command == "rules") {
@@ -158,14 +171,6 @@ function function_name_last() {
 				}
 				if (command == "me") {
 				sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
-				}
-				if (command == "league") {
-						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
-						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:716'>Lea<font color=blue size=6><b>gue<img src='icon:717'></b></font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <font color=grey>Whitney</font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <font color=brickred>Mashal</font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <font color=skyblue>Skyla</font><br>", chan);
-						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				
 				}
 				if (command == "auths" || command == "authlist" || command == "auth") {
@@ -289,6 +294,7 @@ function function_name_last() {
 sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
 return;
 }
+if (sys.auth(src) >= 2) {
 if(sys.dbIp(commandData) == undefined) {
 sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>Sorry, but no player exist by this username.");
 return;
@@ -325,11 +331,13 @@ sys.ban(commandData)
 sys.appendToFile('bans.txt', sys.name(src) + ' banned ' + commandData + "\n")
 return;
 } 
+}
 if (command == "unban") {
 if (sys.auth(src) < 2) {
 sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
 return;
 }
+if (sys.auth(src) >= 2) {
 if(sys.dbIp(commandData) == undefined) {
 sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No player exists by this name!");
 return;
@@ -346,6 +354,7 @@ return;
 }
 }
 } 
+}
 sys.sendHtmlAll(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's not banned!");
 return;
 }
@@ -392,9 +401,9 @@ return;
 		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
 		sys.sendHtmlMessage(src, "<font color=black size=5><b><img src='Themes/Classic/Client/uAvailable'> - Hidden Owners</b></font>", chan);
         sys.dbAuths().sort().filter(function(name) { return sys.dbAuth(name) > 3; }).forEach(function(name) {
-            sys.sendMessage(src, name + " " + sys.dbAuth(name), channel);
+            sys.sendMessage(src, name + " " + sys.dbAuth(name), chan);
         });
-        sys.sendMessage(src, "",channel);
+        sys.sendMessage(src, "",chan);
 		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
 
         return;
