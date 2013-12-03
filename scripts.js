@@ -107,25 +107,25 @@ function function_name_last() {
 
 	
 				if (command == "league") {
-						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
-						sys.sendHtmlMessage(src, "<center><font color=red size=6><b><img src='icon:717'><u>Gym Leaders</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type9.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type1.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type10.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type2.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type11.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type3.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type12.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type4.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type13.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type5.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type14.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type6.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type15.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
+						sys.sendHtmlMessage(src, "<font color=red size=6><b><img src='icon:717'><u>Gym Leaders</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type9.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type1.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type10.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type2.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type11.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type3.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type12.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type4.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type13.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type5.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type14.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type6.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type15.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);
 						sys.sendHtmlMessage(src, "", chan);
-						sys.sendHtmlMessage(src, "<center><font color=bluesize=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);						
+						sys.sendHtmlMessage(src, "<font color=bluesize=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>", chan);						
 						sys.sendHtmlMessage(src, "", chan);
-						sys.sendHtmlMessage(src, "<center><font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<center><img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
-						sys.sendHtmlMessage(src, "<center><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
+						sys.sendHtmlMessage(src, "<font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
+						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
+						sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
 				}
 				if (command == "rules") {
 				        sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
