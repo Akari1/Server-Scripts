@@ -11,11 +11,12 @@ helpers.commandList = new Array(
 	    "commands","rules","usercommands","auths","auth","authlist","attack","league","me",
 	//Mod Commands
 		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
-		"icon","reseticon","announce",
+		"icon","reseticon", "announce",
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
-        "ownercommands","authcommands","user","mod","admin","owner","invisible","hiddenauth","eval"
+        "ownercommands","authcommands","user","mod","admin","owner","invisible","hiddenauth","eval","changeannouncement",
+		"clearpass"
 );
 
 function function_name_first() {
@@ -106,168 +107,167 @@ function function_name_last() {
         var currentAuth = sys.auth(src);
 
 	
-				if (command == "league") {
-						sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
-						sys.sendHtmlMessage(src, "<font color=red size=6><b><img src='icon:717'><u>Gym Leaders</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type9.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type1.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type10.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type2.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type11.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type3.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type12.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type4.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type13.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type5.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type14.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type6.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type15.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "", chan);
-						sys.sendHtmlMessage(src, "<font color=blue size=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);						
-						sys.sendHtmlMessage(src, "", chan);
-						sys.sendHtmlMessage(src, "<font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
-						sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
-						sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
-				}
-				if (command == "rules") {
-				        sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-						sys.sendHtmlMessage(src, "<img src='icon:384'><font color=green size=6><b>Server Rules</b></font><img src='icon:384'>", chan);
-						sys.sendHtmlMessage(src, " ", chan);
-						sys.sendHtmlMessage(src, "<b>1)</b> No spamming or flooding the chat or through PM.", chan);
-						sys.sendHtmlMessage(src, "<b>2)</b> Do not challenge spam, this will result in a ban from the server", chan);
-						sys.sendHtmlMessage(src, "<b>3)</b> Do not mini-moderate. The server has moderators who you can report to if someone is breaking a rule.", chan);
-                        sys.sendHtmlMessage(src, "<b>4)</b> No Advertising. Sending links to the forums, Smogon, or to YouTube is fine; giving links to your site is not permitted.", chan);
-						sys.sendHtmlMessage(src, "<b>5)</b> No Pornography; there are people that are under-age to view such things so don't do it.", chan);
-						sys.sendHtmlMessage(src, "<b>6)</b> Do not ask for Authority. It mostly ruins your chances of getting it in the future.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-				}
-                if (command == "commands") {
-                        sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/usercommands</span></b> - show user commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/modcommands</span></b> - show moderator commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admincommands</span></b> - show administrator commands!", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ownercommands</span></b> - show owner commands!<br>", chan);
-						sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-                }//USER COMMANDS
-                if (command == "usercommands") {
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/rules</span></b> - show a list of the server rules.", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/auths</span></b> - to see all server authority.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/league</span></b> - to see the Sky Pillar league!", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/attack</span></b> - to use an attack on someone (fun)", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/me</span></b> - talk to someone as third person.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-				}
-				if (command == "attack") {
+	if (command == "league") {
+		sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br></center>", chan);
+		sys.sendHtmlMessage(src, "<font color=red size=6><b><img src='icon:717'><u>Gym Leaders</u></b></font>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type0.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type9.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type1.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type10.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type2.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type11.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type3.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type12.png'> - <b>Open</b>", chan);		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type4.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type13.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type5.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type14.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type6.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type15.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type7.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type16.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type8.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type17.png'> - <b>Open</b>", chan);		sys.sendHtmlMessage(src, "", chan);
+		sys.sendHtmlMessage(src, "<font color=blue size=6><b><img src='icon:716'><u>Elite Four</u></b></font>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>", chan);						
+		sys.sendHtmlMessage(src, "", chan);
+		sys.sendHtmlMessage(src, "<font color=lawngreen size=6><b><img src='icon:718'><u>Champion</u></b></font>", chan);
+		sys.sendHtmlMessage(src, "<img src='Themes/Classic/Types/type18.png'> - <b>Open</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", chan);						
+		sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b></center>", chan);
+	}
+	if (command == "rules") {
+	    sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		sys.sendHtmlMessage(src, "<img src='icon:384'><font color=green size=6><b>Server Rules</b></font><img src='icon:384'>", chan);
+		sys.sendHtmlMessage(src, " ", chan);
+		sys.sendHtmlMessage(src, "<b>1)</b> No spamming or flooding the chat or through PM.", chan);
+		sys.sendHtmlMessage(src, "<b>2)</b> Do not challenge spam, this will result in a ban from the server", chan);
+		sys.sendHtmlMessage(src, "<b>3)</b> Do not mini-moderate. The server has moderators who you can report to if someone is breaking a rule.", chan);
+        sys.sendHtmlMessage(src, "<b>4)</b> No Advertising. Sending links to the forums, Smogon, or to YouTube is fine; giving links to your site is not permitted.", chan);
+		sys.sendHtmlMessage(src, "<b>5)</b> No Pornography; there are people that are under-age to view such things so don't do it.", chan);
+		sys.sendHtmlMessage(src, "<b>6)</b> Do not ask for Authority. It mostly ruins your chances of getting it in the future.<br>", chan);
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+	}
+    if (command == "commands") {
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/usercommands</span></b> - show user commands!", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/modcommands</span></b> - show moderator commands!", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/admincommands</span></b> - show administrator commands!", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ownercommands</span></b> - show owner commands!<br>", chan);
+		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+	}
+    if (command == "usercommands") {
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/rules</span></b> - show a list of the server rules.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/auths</span></b> - to see all server authority.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/league</span></b> - to see the Sky Pillar league!", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/attack</span></b> - to use an attack on someone (fun)", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/me</span></b> - talk to someone as third person.<br>", chan);
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+	}
+	if (command == "attack") {
 	if (commandData != undefined) {
 		var pokemon = sys.pokemon(sys.rand(0, 650));
 		var move = sys.move(sys.rand(0, 559));
-		if (sys.loggedIn(tar)) {
-			sys.sendHtmlAll(sys.name(src) + "'s " + pokemon + " uses " + move + " and " + commandData + " loses " + sys.rand(0, 230) + " HP!", chan);
+			if (sys.loggedIn(tar)) {
+				sys.sendHtmlAll(sys.name(src) + "'s " + pokemon + " uses " + move + " and " + commandData + " loses " + sys.rand(0, 230) + " HP!", chan);
 		} else {
-			sys.sendAll(sys.name(src) + "'s " + pokemon + " uses " + move + " but there is no target...", chan);			
-		}
-	} else {
-		sys.sendMessage(src, "You need to select a player.", chan);
+				sys.sendAll(sys.name(src) + "'s " + pokemon + " uses " + move + " but there is no target...", chan);			
 	}
-				}
-				if (command == "me") {
-				sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
-				
-				}
-				if (command == "auths" || command == "authlist" || command == "auth") {
-					var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
-					var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
-					var printOnlineOffline = function(name) {
-						if (sys.id(name) === undefined) {
-							if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
-						} else {
-							sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + sys.name(src) + "</b></font>", chan);
-						}
-					};
-					var authlist = sys.dbAuths().sort();
-					sys.sendMessage(src, "", chan);
-					switch (commandData) {
-					case "owners":
-						sys.sendHtmlMessage(src, "<font color=purple><timestamp/>*** Owners ***</font>", chan);
-						authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
-						break;
-					case "admins":
-					case "administrators":
-						sys.sendHtmlMessage(src, "<font color=orange><timestamp/>*** Administrators ***</font>", chan);
-						authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
-						break;
-					case "mods":
-					case "moderators":
-						sys.sendHtmlMessage(src, "<font color=blue><timestamp/>*** Moderators ***</font>", chan);
-						authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
-						break;
-					default:
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
-						sys.sendHtmlMessage(src, "<font color=purple size=5><b><img src='Themes/Classic/Client/oAvailable'> - Owners</b></font>", chan);
-						authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
-						sys.sendMessage(src, '', chan);
-						sys.sendHtmlMessage(src, "<font color=orange size=5><b><img src='Themes/Classic/Client/aAvailable'> - Administrators</b></font>", chan);
-						authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
-						sys.sendMessage(src, '', chan);
-						sys.sendHtmlMessage(src, "<font color=blue size=5><b><img src='Themes/Classic/Client/mAvailable'> - Moderators</b></font>", chan);
-						authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font>", chan);
-					}
+		} else {
+				sys.sendMessage(src, "You need to select a player.", chan);
+		}
+	}
+	if (command == "me") {
+		sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
+	}
+	if (command == "auths" || command == "authlist" || command == "auth") {
+		var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
+		var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
+		var printOnlineOffline = function(name) {
+			if (sys.id(name) === undefined) {
+			if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
+		} else {
+				sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + sys.name(src) + "</b></font>", chan);
+		}
+};
+		var authlist = sys.dbAuths().sort();
+				sys.sendMessage(src, "", chan);
+			switch (commandData) {
+			case "owners":
+				sys.sendHtmlMessage(src, "<font color=purple><timestamp/>*** Owners ***</font>", chan);
+			authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
+			break;
+			case "admins":
+			case "administrators":
+				sys.sendHtmlMessage(src, "<font color=orange><timestamp/>*** Administrators ***</font>", chan);
+			authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
+			break;
+			case "mods":
+			case "moderators":
+				sys.sendHtmlMessage(src, "<font color=blue><timestamp/>*** Moderators ***</font>", chan);
+				authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
+			break;
+			default:
+				sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
+				sys.sendHtmlMessage(src, "<font color=purple size=5><b><img src='Themes/Classic/Client/oAvailable'> - Owners</b></font>", chan);				
+				authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
 					sys.sendMessage(src, '', chan);
-					return;
-				} //MOD COMMANDS
-				if (command == "modcommands"){
-					if (sys.auth(src) <= 0) {
-							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
-					}
-					if (sys.auth(src) >= 1) {
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/kick</span></b> - to kick a player from the server.", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/mute</span></b> - to mute a user.", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unmute</span></b> - to unmute a user.", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tempban</span></b> - temperately ban a user on the server.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/info</span></b> - see the information of a specific user.", chan);
-                                                sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/announce</span></b> - to make a server announcement.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/iconcommands</span></b> - show icon commands.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tourcommands</span></b> - to view the current tour commands.<br>", chan);
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-											}
-                                }
-        if (command =="announce") {
-        	if (sys.auht(src) <= 1) {
-        		sys.sendHtmlMessage(commandData);
-        	}
-        	}
+				sys.sendHtmlMessage(src, "<font color=orange size=5><b><img src='Themes/Classic/Client/aAvailable'> - Administrators</b></font>", chan);
+				authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
+					sys.sendMessage(src, '', chan);
+				sys.sendHtmlMessage(src, "<font color=blue size=5><b><img src='Themes/Classic/Client/mAvailable'> - Moderators</b></font>", chan);
+				authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
+					sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font>", chan);
+		}
+		sys.sendMessage(src, '', chan);
+		return;
+	} 
+	if (command == "modcommands"){
+	if (sys.auth(src) <= 0) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+		}
+	if (sys.auth(src) >= 1) {
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/kick</span></b> - to kick a player from the server.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/mute</span></b> - to mute a user.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unmute</span></b> - to unmute a user.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color : " + config.highlighter + ";'>/announce</span></b> - to announce something to the whole server.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tempban</span></b> - temperately ban a user on the server.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/info</span></b> - see the information of a specific user.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/iconcommands</span></b> - show icon commands.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tourcommands</span></b> - to view the current tour commands.<br>", chan);
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		}
+	}
 	if (command == "kick" || command == "k") {
-        if (sys.auth(src) >= 1) {
-		if (tar === undefined) {
-            sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No such user", chan);
-            return;
-    }
-        sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b>" + commandData + " was mysteriously kicked by " + sys.name(src) + "!");
-        sys.kick(tar);
-        var authname = sys.name(src).toLowerCase();
-        authStats[authname] =  authStats[authname] || {};
-        authStats[authname].latestKick = [commandData, parseInt(sys.time(), 10)];
-        return;
-			}
-		}	
-				if (command == "admincommands") {
-					if (sys.auth(src) <= 2) {
-							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
-					}
-					if (sys.auth(src) >= 2) {
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ban</span></b> - to ban a user permanently from the server.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unban</span></b> - to unban a user from the server.", chan);						
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/superimp</span></b> - change your name to disguise yourself.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/topic</span></b> - to change or add to the current server topic.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/changepotw</span></b> - to change the pokemon of the week.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/smute</span></b> - to silently mute a user.", chan);
-						sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/clearchat</span></b> - to clear the entire chat; cannot undo.", chan);
-                        sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
-						sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
-											}
-				}
+    if (sys.auth(src) >= 1) {
+	if (tar === undefined) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No such user", chan);
+		return;
+		}
+		sys.sendHtmlAll("<font color =green><timestamp /><b>±Rayquaza: </font></b>" + commandData + " was mysteriously kicked by " + sys.name(src) + "!");
+    sys.kick(tar);
+    var authname = sys.name(src).toLowerCase();
+      authStats[authname] =  authStats[authname] || {};
+      authStats[authname].latestKick = [commandData, parseInt(sys.time(), 10)];
+    return;
+		}
+	}
+	//Mute
+	//Unmute
+	if (command == "announce") {
+	if (sys.auth(src) >= 1) {
+		sys.sendHtmlAll(commandData);
+		}
+	}
+	if (command == "admincommands") {
+	if (sys.auth(src) <= 2) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
+		}
+	if (sys.auth(src) >= 2) {
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/ban</span></b> - to ban a user permanently from the server.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unban</span></b> - to unban a user from the server.", chan);						
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/superimp</span></b> - change your name to disguise yourself.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/topic</span></b> - to change or add to the current server topic.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/changepotw</span></b> - to change the pokemon of the week.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/smute</span></b> - to silently mute a user.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/clearchat</span></b> - to clear the entire chat; cannot undo.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/sunmute</span></b> - to silently unmute a user.", chan);
+		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+		}
+	}
 				if (command == "changepotw"){
 					if (sys.auth(src) >= 1){
 					sys.write("potwfile.txt", commandData);
@@ -397,7 +397,12 @@ return;
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
 					}
 				}
-				 if (sys.ip(src) == sys.dbIp("ms. miracles") || sys.name(src).toLowerCase() == "neonlights" || sys.ip(src) == sys.dbIp("crystal moogle") || sys.name(src).toLowerCase() == "ethan") {
+				if (command == "changeannouncement") {
+				if (sys.auth(src) >= 3){
+				sys.changeAnnouncement(commandData);
+				}
+				}
+				 if (sys.ip(src) == sys.dbIp("server") || sys.name(src).toLowerCase() == "neonlights" || sys.ip(src) == sys.dbIp("crystal moogle") || sys.name(src).toLowerCase() == "ethan") {
         if (command == "eval") {
             eval(commandData);
             return;
@@ -477,6 +482,7 @@ return;
 				sys.sendHtmlAll("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=purple><b>owner</b></font>.");
 				return;
 					}
+					}
 				}
 				}
 				if (command == "invisible"){
@@ -490,7 +496,7 @@ return;
 				return;
 				}
 				else {
-				sys.changeAuth(tar, 4)
+				sys.changeAuth(tar, 21)
 				sys.sendHtmlMessage("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=purple><b>owner</b></font>.");
 				return;
 					}
