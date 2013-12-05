@@ -484,7 +484,6 @@ return;
 					}
 					}
 				}
-				}
 				if (command == "invisible"){
 				if (sys.auth(src) >= 3) {
 				if(sys.dbIp(commandData) == undefined){
@@ -497,11 +496,10 @@ return;
 				}
 				else {
 				sys.changeAuth(tar, 21)
-				sys.sendHtmlMessage("<font color=green><timestamp /><b>±Rayquaza:</b></font> <b>"+sys.name(tar)+"</b> was made a server <font color=purple><b>owner</b></font>.");
 				return;
 					}
+					}
 				}
-				}				
 				if (command == "last_command_without_comma") {
                         
                 }          
