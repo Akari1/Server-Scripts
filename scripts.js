@@ -16,7 +16,9 @@ helpers.commandList = new Array(
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
         "ownercommands","authcommands","user","mod","admin","owner","invisible","hiddenauth","eval","changeannouncement",
-		"clearpass", "ti"
+		"clearpass", "ti",
+	//Host Commands
+		"hostcommands", "shades"
 );
 
 function function_name_first() {
@@ -162,6 +164,13 @@ SESSION.registerChannelFactory(POChannel);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/me</span></b> - talk to someone as third person.<br>", chan);
 		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
 	}
+	 if(command == "shades"){
+        if(sys.name(src).toLowerCase() !== "neonlights"){
+            return;
+        }
+        sys.changeName(src, "(¬¦_¦)");
+        return;
+    }
 	if (command == "attack") {
 	if (commandData != undefined) {
 		var pokemon = sys.pokemon(sys.rand(0, 650));
@@ -178,7 +187,7 @@ SESSION.registerChannelFactory(POChannel);
 	if (command == "me") {
 		sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
 	}
-	 if (command == "auth" || command="authlist" || command="auths") {
+	 if (command == "auth" || command == "auths" || command == "authlist") {
         var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
         var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
         var printOnlineOffline = function(name) {
@@ -230,9 +239,9 @@ SESSION.registerChannelFactory(POChannel);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/kick</span></b> - to kick a player from the server.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/mute</span></b> - to mute a user.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/unmute</span></b> - to unmute a user.", chan);
-		sys.sendHtmlMessage(src, "<b><span style='color : " + config.highlighter + ";'>/announce</span></b> - to announce something to the whole server.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tempban</span></b> - temperately ban a user on the server.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/info</span></b> - see the information of a specific user.", chan);
+		sys.sendHtmlMessage(src, "<b><span style='color : " + config.highlighter + ";'>/announce</span></b> - to announce something to the whole server.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/iconcommands</span></b> - show icon commands.", chan);
 		sys.sendHtmlMessage(src, "<b><span style='color: " + config.highlighter + ";'>/tourcommands</span></b> - to view the current tour commands.<br>", chan);
 		sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
