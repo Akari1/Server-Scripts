@@ -8,15 +8,15 @@ config.highlighter = "green";
 helpers = new Object();
 helpers.commandList = new Array(
     //User Commands
-	    "commands","rules","usercommands","auths","auth","authlist","attack","league","me",
+	    "commands","rules","usercommands","auth","auths","authlist","attack","league","me",
 	//Mod Commands
-		"modcommands","kick","mute","unmute","tempban","info","iconcommands","tourcommands",
+		"modcommands","kick","mute","unmute","tempban", "tempunban", "info","iconcommands","tourcommands",
 		"icon","reseticon", "announce",
 	//Admin Commands
 		"admincommands","ban","unban","smute","sunmute","superimp","topic","clearchat","changepotw",
 	//Owner Commands
         "ownercommands","authcommands","user","mod","admin","owner","invisible","hiddenauth","eval","changeannouncement",
-		"clearpass"
+		"clearpass", "ti"
 );
 
 function function_name_first() {
@@ -57,16 +57,20 @@ function function_name_last() {
         //...
     afterLogIn: function (src)
     {
+	{
         sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b>");
 		var topicfile = sys.read("topicfile.txt");		
 		sys.sendHtmlMessage(src, "<font color=red><timestamp /><b>±WelcomeBot: </font></b>Hello <font color=" + sys.getColor(src) + "><b>" + sys.name(src) + "</font></b>!" + topicfile );
 		sys.sendHtmlMessage(src, "<font color=orange><timestamp /><b>±PlayerBot: </font></b> Current amount of players online is: <b>" + sys.numPlayers() + "</b>.");
 		sys.sendHtmlMessage(src, "<font color=green><timestamp /><b>±InfoBot: </font></b> Your current IP is: <b>" + sys.ip(src) + "</b>.");
-		sys.sendHtmlMessage(src, "<font color=purple><timestamp /><b>±IdentityBot: </font></b> Your current user ID is: <b>" + sys.id(src) + "</b>.");
 		var topicfile = sys.read("potwfile.txt");		
 		sys.sendHtmlMessage(src, "<font color=blue><timestamp /><b>±PokeBot: </font></b> The current Pokémon of the Week is: " + topicfile );
 		sys.sendHtmlMessage(src, "<font color=navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>");
-
+	}
+	function POChannel() {
+	this.permanent = false;
+}
+SESSION.registerChannelFactory(POChannel);
     },
 	
 		beforeChatMessage : function(src, message, chan) {
@@ -163,59 +167,59 @@ function function_name_last() {
 		var pokemon = sys.pokemon(sys.rand(0, 650));
 		var move = sys.move(sys.rand(0, 559));
 			if (sys.loggedIn(tar)) {
-				sys.sendHtmlAll(sys.name(src) + "'s " + pokemon + " uses " + move + " and " + commandData + " loses " + sys.rand(0, 230) + " HP!", chan);
+				sys.sendHtmlAll(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b><b><font color=" + sys.getColor(sys.id(name)) + ">" + sys.name(src) + "'s</b> " + pokemon + " uses " + move + " on " + commandData + "!", chan);
 		} else {
-				sys.sendAll(sys.name(src) + "'s " + pokemon + " uses " + move + " but there is no target...", chan);			
+				sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>Please select a target!", chan);			
 	}
 		} else {
-				sys.sendMessage(src, "You need to select a player.", chan);
+				sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You need to select a player.", chan);
 		}
 	}
 	if (command == "me") {
 		sys.sendHtmlAll("<span style='color:"+ sys.getColor(src) +"'><timestamp/><b> ***<i>"+ sys.name(src) +"</b> <i>"+commandData+"</i></span>");
 	}
-	if (command == "auths" || command == "authlist" || command == "auth") {
-		var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
-		var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
-		var printOnlineOffline = function(name) {
-			if (sys.id(name) === undefined) {
-			if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
-		} else {
-				sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + sys.name(src) + "</b></font>", chan);
-		}
-};
-		var authlist = sys.dbAuths().sort();
-				sys.sendMessage(src, "", chan);
-			switch (commandData) {
-			case "owners":
-				sys.sendHtmlMessage(src, "<font color=purple><timestamp/>*** Owners ***</font>", chan);
-			authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
-			break;
-			case "admins":
-			case "administrators":
-				sys.sendHtmlMessage(src, "<font color=orange><timestamp/>*** Administrators ***</font>", chan);
-			authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
-			break;
-			case "mods":
-			case "moderators":
-				sys.sendHtmlMessage(src, "<font color=blue><timestamp/>*** Moderators ***</font>", chan);
-				authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
-			break;
-			default:
-				sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font><br>", chan);
-				sys.sendHtmlMessage(src, "<font color=purple size=5><b><img src='Themes/Classic/Client/oAvailable'> - Owners</b></font>", chan);				
-				authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
-					sys.sendMessage(src, '', chan);
-				sys.sendHtmlMessage(src, "<font color=orange size=5><b><img src='Themes/Classic/Client/aAvailable'> - Administrators</b></font>", chan);
-				authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
-					sys.sendMessage(src, '', chan);
-				sys.sendHtmlMessage(src, "<font color=blue size=5><b><img src='Themes/Classic/Client/mAvailable'> - Moderators</b></font>", chan);
-				authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
-					sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</b></font>", chan);
-		}
-		sys.sendMessage(src, '', chan);
-		return;
-	} 
+	 if (command == "auth" || command="authlist" || command="auths") {
+        var DoNotShowIfOffline = ["loseyourself", "oneballjay"];
+        var filterByAuth = function(level) { return function(name) { return sys.dbAuth(name) == level; }; };
+        var printOnlineOffline = function(name) {
+            if (sys.id(name) === undefined) {
+                if (DoNotShowIfOffline.indexOf(name) == -1) sys.sendMessage(src, name, chan);
+            } else {
+                sys.sendHtmlMessage(src, "<font color = " + sys.getColor(sys.id(name)) + "><timestamp/><b>" + name + "</b></font>", chan);
+            }
+        };
+        var authlist = sys.dbAuths().sort();
+        sys.sendMessage(src, "", chan);
+        switch (commandData) {
+        case "owners":
+            sys.sendMessage(src, "*** Owners ***", chan);
+            authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
+            break;
+        case "admins":
+        case "administrators":
+            sys.sendMessage(src, "*** Administrators ***", chan);
+            authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
+            break;
+        case "mods":
+        case "moderators":
+            sys.sendMessage(src, "*** Moderators ***", chan);
+            authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
+            break;
+        default:
+			sys.sendHtmlMessage(src, "<font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b><br>", chan);
+            sys.sendHtmlMessage(src, "<font color=purple>*** Owners ***</font>", chan);
+            authlist.filter(filterByAuth(3)).forEach(printOnlineOffline);
+            sys.sendHtmlMessage(src, '', chan);
+            sys.sendHtmlMessage(src, "<font color=orange>*** Administrators ***</font>", chan);
+            authlist.filter(filterByAuth(2)).forEach(printOnlineOffline);
+            sys.sendHtmlMessage(src, '', chan);
+            sys.sendHtmlMessage(src, "<font color=blue>*** Moderators ***</font>", chan);
+            authlist.filter(filterByAuth(1)).forEach(printOnlineOffline);
+			sys.sendHtmlMessage(src, "<br><font color =navy blue><timestamp /><b>»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»</font></b>", chan);
+        }
+        sys.sendMessage(src, '', chan);
+        return;
+    }
 	if (command == "modcommands"){
 	if (sys.auth(src) <= 0) {
 		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
@@ -275,7 +279,7 @@ function function_name_last() {
 	if (command == "topic"){
 					if (sys.auth(src) >= 1){
 					sys.write("topicfile.txt", commandData);
-					sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b> You have set the potw to: "+commandData+"");
+					sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b> You have set the topic to: "+commandData+"");
 					return;
 					}
 					else {
@@ -314,74 +318,73 @@ function function_name_last() {
 							}
 				if (command == "ban") {
 				if (sys.auth(src) < 2) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
-return;
-}
-if (sys.auth(src) >= 2) {
-if(sys.dbIp(commandData) == undefined) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>Sorry, but no player exist by this username.");
-return;
-}
-if (sys.maxAuth(sys.ip(tar))>=sys.auth(src)) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command on higher authority.");
-return;
-}
-ip = sys.dbIp(commandData) 
-alias=sys.aliases(ip)
-y=0
-for(var x in alias) {
-z = sys.dbAuth(alias[x])
-if (z > y) {
-y=z
-}
-}
-if(y>=sys.auth(src)) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot ban users of higher authority/");
-return;
-}
-banlist=sys.banList()
-for(a in banlist) {
-if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's already banned!");
-return;
-}
-}
-sys.sendHtmlAll('<b><font color=red>' + commandData + ' was banned by ' + sys.name(src) + '!</font></b>');
-if(tar != undefined) {
-sys.kick(tar)
-}
-sys.ban(commandData)
-sys.appendToFile('bans.txt', sys.name(src) + ' banned ' + commandData + "\n")
-return;
-} 
-}
-if (command == "unban") {
-if (sys.auth(src) < 2) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
-return;
-}
-if (sys.auth(src) >= 2) {
-if(sys.dbIp(commandData) == undefined) {
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No player exists by this name!");
-return;
-}
-banlist=sys.banList()
-for(a in banlist) {
-if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
-sys.unban(commandData)
-sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You unbanned " + commandData + "!");
-if (sys.auth(src) >= 1) {
-sys.sendHtmlAll('<font color =green><timestamp /><b>±Rayquaza: </font></b>' + commandData + ' was unbanned by ' + sys.name(src) + '!');
-sys.appendToFile('bans.txt', sys.name(src) + ' unbanned ' + commandData + "\n")
-return;
-}
-}
-} 
-}
-sys.sendHtmlAll(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's not banned!");
-return;
-}
-
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
+		return;
+				}
+				if (sys.auth(src) >= 2) {
+				if(sys.dbIp(commandData) == undefined) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>Sorry, but no player exist by this username.");
+		return;
+				}
+				if (sys.maxAuth(sys.ip(tar))>=sys.auth(src)) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command on higher authority.");
+		return;
+				}
+					ip = sys.dbIp(commandData) 
+						alias=sys.aliases(ip)
+							y=0
+					for(var x in alias) {
+						z = sys.dbAuth(alias[x])
+							if (z > y) {
+							y=z
+							}
+					}
+				if(y>=sys.auth(src)) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot ban users of higher authority/");
+		return;
+				}
+					banlist=sys.banList()
+					for(a in banlist) {
+					if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's already banned!");
+		return;
+					}
+					}
+		sys.sendHtmlAll('<b><font color=red>' + commandData + ' was banned by ' + sys.name(src) + '!</font></b>');
+					if(tar != undefined) {
+					sys.kick(tar)
+					}
+		sys.ban(commandData)
+			sys.appendToFile('bans.txt', sys.name(src) + ' banned ' + commandData + "\n")
+		return;
+		} 
+		}
+				if (command == "unban") {
+				if (sys.auth(src) < 2) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You cannot use this command!");
+		return;
+				}
+				if (sys.auth(src) >= 2) {
+				if(sys.dbIp(commandData) == undefined) {
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>No player exists by this name!");
+		return;
+				}
+		banlist=sys.banList()
+			for(a in banlist) {
+			if(sys.dbIp(commandData) == sys.dbIp(banlist[a])) {
+				sys.unban(commandData)
+		sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You unbanned " + commandData + "!");
+			if (sys.auth(src) >= 1) {
+		sys.sendHtmlAll('<font color =green><timestamp /><b>±Rayquaza: </font></b>' + commandData + ' was unbanned by ' + sys.name(src) + '!');
+			sys.appendToFile('bans.txt', sys.name(src) + ' unbanned ' + commandData + "\n")
+		return;
+			}
+			}
+			} 
+				}
+		sys.sendHtmlAll(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>He/she's not banned!");
+		return;
+				}
 				if (command == "ownercommands") {
 					if (sys.auth(src) <= 3) {
 							sys.sendHtmlMessage(src, "<font color =green><timestamp /><b>±Rayquaza: </font></b>You do not have permission to use this command.", chan);
@@ -521,10 +524,10 @@ return;
                         
                 }          
         },        
-        
-        afterNewMessage : function(message) {
+ 
+		afterNewMessage : function(message) {
                 if (message == "Script Check: OK") {
-                sendInfoMessageToAll("Script Check: OK");
+                sendInfoMessageToAll("Scripts have been updated, the server may need to restart for the effects to take place.");
                 }
         } //no comma after the last event
 //END OF SCRIPT        
